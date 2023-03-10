@@ -5,6 +5,7 @@ const Post = require("../schemas/posts.js");
 const Likes = require("../schemas/likes.js");
 
 //좋아요 게시글 조회
+// 게시글 상세 조회와 url 경로가 겹치기 때문에 /posts/like -> /post/like로 수정함
 router.get("/post/like", authMiddleware, async (req, res) => {
   const { userId } = res.locals.user;
   const findLikes = await Likes.find({ userId: userId });
